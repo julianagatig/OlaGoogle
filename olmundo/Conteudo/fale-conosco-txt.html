@@ -44,7 +44,7 @@
                     </hgroup>
                 </header>
             </article>
-            <form>
+            <form method="POST" id="fcontato" action="mailto:">
                 <fieldset id="usuario">
                     <legend>Identificação do Usuário</legend>
                     <p>Nome:<input type="text" name="tNome" id="cNome" size="50" maxlength="100" placeholder="Nome Completo" /> </p>
@@ -59,14 +59,38 @@
                 </fieldset>
                 <fieldset id="endereco">
                     <legend> Endereço do Usuário</legend>
-                    <p><label for="tLogr">Logradouro:</label><input type="text" name="tLogr" id="cLogr" size="50" maxlength="100" placeholder="Rua, Avenida, Travessa" /> </p>
+                    <p><label for="cLogr">Logradouro:</label><input type="text" name="tLogr" id="cLogr" size="50" maxlength="100" placeholder="Rua, Avenida, Travessa" /> </p>
                     <p><label for="cNum">Número:</label><input type="number" name="tNum" id="cNum" min="0" max="99999" /></p>
-                    <p><label for="tUF"> Estado:</label><input type="text" name="tUF" id="cUF" size="10" maxlength="02" /></p>
-                    <p><label for="cMun">Cidade:</label><input type="text" name="tMun" id="cMun" size="50" maxlength="100" /></p>
+                    <p><label for="cEst" id="cEst">Estado:</label>
+                        <select name="tEst" id="cEst">
+                    <optgroup label="Região Sudeste">
+                        <option>Rio de Janeiro</option>
+                        <option selected>São Paulo</option>
+                        <option>Minas Gerais</option>
+                    </optgroup>
+                    <optgroup label="Região Norte">
+                        <option>Pará</option>
+                    </optgroup>
+                    <optgroup label="Região Nordeste">
+                        <option>Bahia</option>
+                        <option>Maranhão</option>
+                    </optgroup>
+                </select></p>
+                    <p><label for="cMun">Cidade:</label>
+                        <input type="text" name="tMun" id="cMun" size="20" maxlength="50" placeholder="Cidade" list="cidade" /></p>
+                    <datalist id="cidade">
+                            <option value="Rio de Janeiro"></option>
+                            <option value="Niterói"></option>
+                            <option value="Buzios"></option>
+                            <option value="Duque de Caxias"></option>
+                        </datalist>
                 </fieldset>
                 <fieldset id="mensagem">
                     <legend> Mensagem do Usuário </legend>
-                    Grau de Urgência: Mensagem:
+                    <p><label for="cUrg">Grau de Urgência:</label>Min.<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2">Máx.</p>
+                    <p><label for="cMsg"> Mensagem:</label>
+                        <textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="Deixe aqui sua mensagem">
+                    </textarea></p>
                 </fieldset>
                 <fieldset id="pedido">
                     <legend> Quero um Google Glass</legend>
